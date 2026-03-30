@@ -180,21 +180,21 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 60%, rgba(74, 26, 107, 0.35) 0%, transparent 45%),
-    radial-gradient(circle at 70% 50%, rgba(27, 94, 32, 0.3) 0%, transparent 45%),
-    radial-gradient(circle at 50% 70%, rgba(74, 26, 107, 0.15) 0%, transparent 60%),
-    radial-gradient(circle at 50% 40%, rgba(27, 94, 32, 0.1) 0%, transparent 55%),
-    linear-gradient(180deg, var(--dark) 0%, rgba(10, 10, 10, 0.4) 50%, var(--dark) 100%);
+    radial-gradient(circle at 30% 60%, rgba(74, 26, 107, 0.55) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(27, 94, 32, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 50% 70%, rgba(74, 26, 107, 0.25) 0%, transparent 65%),
+    radial-gradient(circle at 50% 40%, rgba(27, 94, 32, 0.2) 0%, transparent 60%),
+    linear-gradient(180deg, var(--dark) 0%, rgba(10, 10, 10, 0.25) 50%, var(--dark) 100%);
   z-index: 1;
   transition: background 0.6s ease;
 }
 body.fleurtijd .hero-overlay {
   background:
-    radial-gradient(circle at 30% 60%, rgba(139, 26, 26, 0.4) 0%, transparent 45%),
-    radial-gradient(circle at 70% 50%, rgba(30, 10, 10, 0.3) 0%, transparent 45%),
-    radial-gradient(circle at 50% 70%, rgba(139, 26, 26, 0.18) 0%, transparent 60%),
-    radial-gradient(circle at 50% 40%, rgba(20, 20, 20, 0.15) 0%, transparent 55%),
-    linear-gradient(180deg, var(--dark) 0%, rgba(8, 8, 8, 0.4) 50%, var(--dark) 100%);
+    radial-gradient(circle at 30% 60%, rgba(139, 26, 26, 0.6) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(30, 10, 10, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 50% 70%, rgba(139, 26, 26, 0.28) 0%, transparent 65%),
+    radial-gradient(circle at 50% 40%, rgba(20, 20, 20, 0.22) 0%, transparent 60%),
+    linear-gradient(180deg, var(--dark) 0%, rgba(8, 8, 8, 0.25) 50%, var(--dark) 100%);
 }
 #candleCanvas {
   position: absolute;
@@ -209,8 +209,13 @@ body.fleurtijd .hero-overlay {
   text-align: center;
   padding: 0 2rem;
 }
-.haan-svg {
-  color: var(--goud);
+.ster-img {
+  filter: invert(1) sepia(50%) saturate(500%) hue-rotate(10deg) brightness(85%) drop-shadow(0 0 20px var(--paars-glow));
+}
+.haan-img {
+  opacity: 0.9;
+  /* Zwart SVG → goudkleurig via filter */
+  filter: invert(72%) sepia(30%) saturate(700%) hue-rotate(10deg) brightness(90%) drop-shadow(0 0 12px var(--paars-glow));
 }
 .hero-rooster {
   margin-bottom: 1.5rem;
@@ -418,6 +423,172 @@ body.fleurtijd .hero-overlay {
   font-size: 0.95rem;
   color: rgba(245, 240, 232, 0.55);
   line-height: 1.6;
+}
+
+/* ---- Leden ---- */
+.leden {
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-3) 50%, var(--dark) 100%);
+  transition: background 0.6s ease;
+}
+.jaar-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.jaar-tab {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--paars) 25%, transparent);
+  background: color-mix(in srgb, var(--paars) 8%, transparent);
+  color: rgba(245, 240, 232, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.jaar-tab:hover {
+  border-color: var(--goud);
+  color: var(--goud);
+}
+.jaar-tab.active {
+  background: color-mix(in srgb, var(--goud) 12%, transparent);
+  border-color: var(--goud);
+  color: var(--goud);
+}
+.jaar-panels {
+  position: relative;
+}
+.jaar-panel {
+  display: none;
+}
+.jaar-panel.active {
+  display: block;
+}
+.jaar-foto {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--paars) 20%, transparent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+.jaar-foto img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.leden-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.lid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.8rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.lid:hover {
+  border-color: var(--goud);
+  background: color-mix(in srgb, var(--goud) 5%, transparent);
+}
+.lid-naam {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--creme);
+}
+.lid-functie {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--goud);
+  opacity: 0.7;
+}
+
+/* Bio popup */
+.lid-bio-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+.lid-bio-popup.open {
+  display: flex;
+}
+.lid-bio-inner {
+  background: var(--dark);
+  border: 1px solid color-mix(in srgb, var(--goud) 25%, transparent);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 440px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
+}
+.lid-bio-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: rgba(245, 240, 232, 0.4);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.lid-bio-close:hover {
+  color: var(--goud);
+}
+.lid-bio-naam {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--goud);
+  margin-bottom: 0.25rem;
+}
+.lid-bio-functie {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.5);
+  margin-bottom: 1rem;
+}
+.lid-bio-tekst {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(245, 240, 232, 0.7);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .leden-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .leden-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .lid {
+    padding: 0.6rem 0.3rem;
+  }
 }
 
 /* ---- Jenny ---- */

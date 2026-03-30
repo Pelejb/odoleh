@@ -248,6 +248,42 @@
   `;
   document.head.appendChild(style);
 
+  // ---- Leden: jaar-tabs ----
+  document.querySelectorAll('.jaar-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const jaar = tab.dataset.jaar;
+      document.querySelectorAll('.jaar-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.jaar-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.jaar-panel[data-jaar="${jaar}"]`).classList.add('active');
+    });
+  });
+
+  // ---- Leden: bio popup ----
+  const bioPopup = document.getElementById('lidBioPopup');
+  const bioNaam = document.getElementById('lidBioNaam');
+  const bioFunctie = document.getElementById('lidBioFunctie');
+  const bioTekst = document.getElementById('lidBioTekst');
+  const bioClose = document.getElementById('lidBioClose');
+
+  document.querySelectorAll('.lid').forEach(lid => {
+    lid.addEventListener('click', () => {
+      const naam = lid.querySelector('.lid-naam').textContent;
+      const functie = lid.querySelector('.lid-functie');
+      const bio = lid.dataset.bio;
+      bioNaam.textContent = naam;
+      bioFunctie.textContent = functie ? functie.textContent : '';
+      bioFunctie.style.display = functie ? 'block' : 'none';
+      bioTekst.textContent = bio || '';
+      bioPopup.classList.add('open');
+    });
+  });
+
+  bioClose.addEventListener('click', () => bioPopup.classList.remove('open'));
+  bioPopup.addEventListener('click', (e) => {
+    if (e.target === bioPopup) bioPopup.classList.remove('open');
+  });
+
   // ---- Nav background on scroll ----
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
