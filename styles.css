@@ -16,8 +16,25 @@
   --wit: #FFFFFF;
   --dark: #0D0B0E;
   --dark-card: #141016;
+  --section-tint-1: #110E14;
+  --section-tint-2: #0E1210;
+  --section-tint-3: #12101A;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Cormorant Garamond', Garamond, serif;
+}
+
+/* ---- Fleurtijd thema ---- */
+body.fleurtijd {
+  --paars: #8B1A1A;
+  --paars-licht: #B22222;
+  --paars-glow: rgba(139, 26, 26, 0.5);
+  --groen: #1A1A1A;
+  --groen-licht: #2A2A2A;
+  --dark: #080808;
+  --dark-card: #0E0808;
+  --section-tint-1: #120808;
+  --section-tint-2: #0E0A0A;
+  --section-tint-3: #100808;
 }
 
 *, *::before, *::after {
@@ -39,6 +56,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
   line-height: 1.7;
+  transition: background 0.6s ease;
 }
 
 .container {
@@ -111,6 +129,42 @@ body {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* ---- Thema wisselknop ---- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 20px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--goud);
+  background: rgba(255, 255, 255, 0.08);
+}
+.theme-toggle-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: background 0.4s ease;
+}
+.theme-dot-1 { background: #8B1A1A; transition: background 0.4s ease; }
+.theme-dot-2 { background: #1A1A1A; transition: background 0.4s ease; }
+.theme-toggle-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.5);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+.theme-toggle:hover .theme-toggle-label {
+  color: var(--goud);
+}
+
 /* ---- Hero ---- */
 .hero {
   position: relative;
@@ -126,10 +180,21 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 50% 70%, rgba(74, 26, 107, 0.15) 0%, transparent 55%),
-    radial-gradient(ellipse at 30% 40%, rgba(27, 94, 32, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, var(--dark) 0%, rgba(10, 10, 10, 0.6) 50%, var(--dark) 100%);
+    radial-gradient(circle at 30% 60%, rgba(74, 26, 107, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 70% 50%, rgba(27, 94, 32, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(74, 26, 107, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 50% 40%, rgba(27, 94, 32, 0.1) 0%, transparent 55%),
+    linear-gradient(180deg, var(--dark) 0%, rgba(10, 10, 10, 0.4) 50%, var(--dark) 100%);
   z-index: 1;
+  transition: background 0.6s ease;
+}
+body.fleurtijd .hero-overlay {
+  background:
+    radial-gradient(circle at 30% 60%, rgba(139, 26, 26, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 70% 50%, rgba(30, 10, 10, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(139, 26, 26, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 50% 40%, rgba(20, 20, 20, 0.15) 0%, transparent 55%),
+    linear-gradient(180deg, var(--dark) 0%, rgba(8, 8, 8, 0.4) 50%, var(--dark) 100%);
 }
 #candleCanvas {
   position: absolute;
@@ -240,6 +305,7 @@ body {
 .section {
   padding: 6rem 0;
   position: relative;
+  transition: background 0.6s ease;
 }
 .section-title {
   font-family: var(--font-heading);
@@ -260,7 +326,7 @@ body {
 
 /* ---- Over Ons ---- */
 .over {
-  background: linear-gradient(180deg, var(--dark) 0%, #110E14 50%, var(--dark) 100%);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-1) 50%, var(--dark) 100%);
 }
 .over-grid {
   display: grid;
@@ -285,12 +351,12 @@ body {
   gap: 1.5rem;
 }
 .fact-card {
-  background: rgba(74, 26, 107, 0.08);
-  border: 1px solid rgba(74, 26, 107, 0.2);
+  background: color-mix(in srgb, var(--paars) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paars) 20%, transparent);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.6s ease;
 }
 .fact-card:hover {
   border-color: var(--goud);
@@ -317,7 +383,7 @@ body {
 
 /* ---- Cultuur ---- */
 .cultuur {
-  background: linear-gradient(180deg, var(--dark) 0%, #0E1210 50%, var(--dark) 100%);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-2) 50%, var(--dark) 100%);
 }
 .cultuur-grid {
   display: grid;
@@ -325,17 +391,17 @@ body {
   gap: 1.5rem;
 }
 .cultuur-card {
-  background: rgba(27, 94, 32, 0.06);
-  border: 1px solid rgba(27, 94, 32, 0.15);
+  background: color-mix(in srgb, var(--groen) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--groen) 15%, transparent);
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.6s ease;
 }
 .cultuur-card:hover {
   border-color: var(--goud);
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(74, 26, 107, 0.15);
+  box-shadow: 0 8px 32px var(--paars-glow);
 }
 .cultuur-icon {
   color: var(--goud);
@@ -356,7 +422,7 @@ body {
 
 /* ---- Jenny ---- */
 .jenny {
-  background: linear-gradient(180deg, var(--dark) 0%, #12101A 50%, var(--dark) 100%);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-3) 50%, var(--dark) 100%);
 }
 .jenny-content {
   display: grid;
@@ -377,7 +443,8 @@ body {
 .jenny-player {
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(74, 26, 107, 0.2);
+  border: 1px solid color-mix(in srgb, var(--paars) 20%, transparent);
+  transition: border-color 0.6s ease;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 .jenny-player iframe {
@@ -386,7 +453,7 @@ body {
 
 /* ---- Agenda ---- */
 .agenda {
-  background: linear-gradient(180deg, var(--dark) 0%, #110E14 50%, var(--dark) 100%);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-1) 50%, var(--dark) 100%);
 }
 .agenda-list {
   display: flex;
@@ -399,11 +466,11 @@ body {
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  background: rgba(74, 26, 107, 0.06);
-  border: 1px solid rgba(74, 26, 107, 0.15);
+  background: color-mix(in srgb, var(--paars) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paars) 15%, transparent);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.6s ease;
 }
 .agenda-item:hover {
   border-color: var(--goud);
@@ -447,7 +514,7 @@ body {
 
 /* ---- Contact ---- */
 .contact {
-  background: linear-gradient(180deg, var(--dark) 0%, #0E1210 50%, var(--dark) 100%);
+  background: linear-gradient(180deg, var(--dark) 0%, var(--section-tint-2) 50%, var(--dark) 100%);
 }
 .contact-content {
   max-width: 600px;
@@ -494,6 +561,7 @@ body {
   background: var(--zwart);
   border-top: 1px solid rgba(201, 168, 76, 0.1);
   padding: 3rem 2rem;
+  transition: background 0.6s ease;
 }
 .footer-inner {
   max-width: 1000px;
@@ -536,8 +604,8 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.color-paars { background: var(--paars); }
-.color-groen { background: var(--groen); }
+.color-paars { background: var(--paars); transition: background 0.6s ease; }
+.color-groen { background: var(--groen); transition: background 0.6s ease; }
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {

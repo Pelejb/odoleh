@@ -20,6 +20,79 @@
     });
   });
 
+  // ---- Fleurtijd wisselknop ----
+  const themeToggle = document.getElementById('themeToggle');
+  const themeLabel = themeToggle.querySelector('.theme-toggle-label');
+  const themeDot1 = themeToggle.querySelector('.theme-dot-1');
+  const themeDot2 = themeToggle.querySelector('.theme-dot-2');
+  let isFleurtijd = false;
+
+  function updateToggleButton() {
+    if (isFleurtijd) {
+      // Nu in fleurtijd — knop toont "Klassiek" met paars/groen bolletjes
+      themeLabel.textContent = 'Klassiek';
+      themeDot1.style.background = '#4A1A6B';
+      themeDot2.style.background = '#1B5E20';
+      themeToggle.title = 'Wissel naar klassiek';
+    } else {
+      // Nu in klassiek — knop toont "Fleurtijd" met rood/zwart bolletjes
+      themeLabel.textContent = 'Fleurtijd';
+      themeDot1.style.background = '#8B1A1A';
+      themeDot2.style.background = '#1A1A1A';
+      themeToggle.title = 'Wissel naar fleurtijd';
+    }
+  }
+
+  themeToggle.addEventListener('click', () => {
+    isFleurtijd = !isFleurtijd;
+    document.body.classList.toggle('fleurtijd', isFleurtijd);
+    updateToggleButton();
+
+    // Herkleur deeltjes
+    particles.forEach(p => recolorParticle(p));
+  });
+
+  function recolorParticle(p) {
+    const r = Math.random();
+    if (isFleurtijd) {
+      if (r < 0.4) {
+        // Warm kaarslicht
+        p.r = 200 + Math.random() * 55;
+        p.g = 140 + Math.random() * 60;
+        p.b = 40 + Math.random() * 30;
+      } else if (r < 0.7) {
+        // Rood
+        p.r = 139 + Math.random() * 40;
+        p.g = 20 + Math.random() * 15;
+        p.b = 20 + Math.random() * 15;
+      } else if (r < 0.85) {
+        // Zwart/donkergrijs
+        const v = 20 + Math.random() * 30;
+        p.r = v; p.g = v; p.b = v;
+      } else {
+        // Goud
+        p.r = 201; p.g = 168; p.b = 76;
+      }
+    } else {
+      if (r < 0.4) {
+        p.r = 200 + Math.random() * 55;
+        p.g = 140 + Math.random() * 60;
+        p.b = 40 + Math.random() * 30;
+      } else if (r < 0.65) {
+        p.r = 74 + Math.random() * 40;
+        p.g = 26 + Math.random() * 20;
+        p.b = 107 + Math.random() * 40;
+      } else if (r < 0.85) {
+        p.r = 27 + Math.random() * 20;
+        p.g = 94 + Math.random() * 40;
+        p.b = 32 + Math.random() * 20;
+      } else {
+        const w = 200 + Math.random() * 55;
+        p.r = w; p.g = w; p.b = w - 20;
+      }
+    }
+  }
+
   // ---- Candle Particle Effect (Hero) ----
   const canvas = document.getElementById('candleCanvas');
   const ctx = canvas.getContext('2d');
@@ -49,30 +122,7 @@
       this.wobble = Math.random() * Math.PI * 2;
       this.wobbleSpeed = Math.random() * 0.02 + 0.005;
 
-      // Color: mix of warm candle tones, paars and groen
-      const r = Math.random();
-      if (r < 0.4) {
-        // Warm candle glow (amber/gold)
-        this.r = 200 + Math.random() * 55;
-        this.g = 140 + Math.random() * 60;
-        this.b = 40 + Math.random() * 30;
-      } else if (r < 0.65) {
-        // Paars
-        this.r = 74 + Math.random() * 40;
-        this.g = 26 + Math.random() * 20;
-        this.b = 107 + Math.random() * 40;
-      } else if (r < 0.85) {
-        // Groen
-        this.r = 27 + Math.random() * 20;
-        this.g = 94 + Math.random() * 40;
-        this.b = 32 + Math.random() * 20;
-      } else {
-        // Soft white
-        const w = 200 + Math.random() * 55;
-        this.r = w;
-        this.g = w;
-        this.b = w - 20;
-      }
+      recolorParticle(this);
     }
 
     update() {
