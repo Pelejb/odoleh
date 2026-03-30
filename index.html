@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O.D.O.L.E.H. — Dispuut van het Amsterdamsch Studenten Corps</title>
+  <meta name="description" content="O.D.O.L.E.H. — Opgericht Door Oud Leden Enere Hogereburgerschool. Dispuut van het Amsterdamsch Studenten Corps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">O.D.O.L.E.H.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#over">Over Ons</a></li>
+        <li><a href="#cultuur">Cultuur</a></li>
+        <li><a href="#jenny">Jenny</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <canvas id="candleCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-rooster">
+        <svg class="haan-svg" viewBox="0 0 100 120" width="100" height="120">
+          <!-- Heraldische haan — kin omhoog, borst vooruit -->
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Kam -->
+            <path d="M52 12 C54 6 58 4 60 8 C62 4 66 3 67 8 C69 4 73 5 72 10 C71 14 66 16 62 16" fill="currentColor" opacity="0.7"/>
+            <!-- Kop — kin omhoog -->
+            <path d="M62 16 C58 16 54 18 52 22 C50 26 50 30 52 32"/>
+            <!-- Oog -->
+            <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
+            <!-- Snavel — omhoog gericht -->
+            <path d="M64 17 L72 14 L66 19" fill="currentColor" opacity="0.5"/>
+            <!-- Kin/lel -->
+            <path d="M62 22 C64 24 64 28 62 30" stroke="currentColor" opacity="0.6"/>
+            <!-- Nek -->
+            <path d="M52 32 C48 36 44 40 42 46"/>
+            <!-- Borst — vooruit -->
+            <path d="M42 46 C38 52 36 60 38 68 C40 74 44 78 50 80"/>
+            <!-- Rug -->
+            <path d="M52 32 C56 36 58 42 58 50 C58 58 56 66 52 72"/>
+            <!-- Staartveren — klassiek -->
+            <path d="M52 72 C56 68 62 62 68 58" opacity="0.7"/>
+            <path d="M52 72 C58 70 66 66 72 60" opacity="0.6"/>
+            <path d="M52 72 C60 72 68 70 74 64" opacity="0.5"/>
+            <path d="M52 72 C58 76 64 76 70 72" opacity="0.4"/>
+            <!-- Vleugel -->
+            <path d="M46 52 C42 56 40 62 42 68 C44 72 48 74 50 72" opacity="0.5"/>
+            <path d="M46 54 C50 58 52 64 50 70" opacity="0.3"/>
+            <!-- Poten -->
+            <path d="M46 80 L44 96 L38 102"/>
+            <path d="M44 96 L44 104"/>
+            <path d="M44 96 L50 102"/>
+            <path d="M50 80 L52 96 L46 102"/>
+            <path d="M52 96 L52 104"/>
+            <path d="M52 96 L58 102"/>
+          </g>
+        </svg>
+      </div>
+      <h1 class="hero-title">O.D.O.L.E.H.</h1>
+      <p class="hero-full-name">Opgericht Door Oud Leden Enere Hogereburgerschool</p>
+      <p class="hero-subtitle">Het oudste kroegendispuut van het A.S.C. &bull; Sinds 1890</p>
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <span class="divider-icon">
+          <svg class="haan-svg haan-mini" viewBox="0 0 100 120" width="28" height="34">
+            <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M52 12 C54 6 58 4 60 8 C62 4 66 3 67 8 C69 4 73 5 72 10 C71 14 66 16 62 16" fill="currentColor" opacity="0.7"/>
+              <path d="M62 16 C58 16 54 18 52 22 C50 26 50 30 52 32"/>
+              <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
+              <path d="M64 17 L72 14 L66 19" fill="currentColor" opacity="0.5"/>
+              <path d="M52 32 C48 36 44 40 42 46"/>
+              <path d="M42 46 C38 52 36 60 38 68 C40 74 44 78 50 80"/>
+              <path d="M52 32 C56 36 58 42 58 50 C58 58 56 66 52 72"/>
+              <path d="M52 72 C56 68 62 62 68 58" opacity="0.7"/>
+              <path d="M52 72 C58 70 66 66 72 60" opacity="0.6"/>
+              <path d="M52 72 C60 72 68 70 74 64" opacity="0.5"/>
+              <path d="M46 52 C42 56 40 62 42 68 C44 72 48 74 50 72" opacity="0.5"/>
+              <path d="M46 80 L44 96 L38 102"/><path d="M44 96 L44 104"/><path d="M44 96 L50 102"/>
+              <path d="M50 80 L52 96 L46 102"/><path d="M52 96 L52 104"/><path d="M52 96 L58 102"/>
+            </g>
+          </svg>
+        </span>
+        <span class="divider-line"></span>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Ontdek meer</span>
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section 2: Over Ons -->
+  <section id="over" class="section over">
+    <div class="container">
+      <h2 class="section-title">Over het Dispuut</h2>
+      <div class="over-grid">
+        <div class="over-text">
+          <p class="over-lead">O.D.O.L.E.H. — een naam die klinkt als een echo door de gangen van het Amsterdamsch Studenten Corps. Opgericht Door Oud Leden Enere Hogereburgerschool, anno 1890.</p>
+          <p>Het oudste kroegendispuut van het A.S.C. Wat ooit begon als een bond tussen oud-leerlingen van de HBS, groeide uit tot een van de meest karaktervolle disputen van het corps. De hanen van O.D.O.L.E.H. zijn herkenbaar aan hun onvermoeibare geest, hun liefde voor traditie, en een fles Ketel 1 die nooit ver weg is.</p>
+          <p>Bij kaarslicht worden de verhalen verteld, de liederen gezongen en de banden gesmeed die een leven lang meegaan. Want een O.D.O.L.E.H.-aan is dat niet alleen tijdens de studententijd — dat ben je voor altijd.</p>
+        </div>
+        <div class="over-aside">
+          <div class="fact-card">
+            <div class="fact-icon">
+              <svg class="haan-svg haan-fact" viewBox="0 0 100 120" width="48" height="58">
+                <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M52 12 C54 6 58 4 60 8 C62 4 66 3 67 8 C69 4 73 5 72 10 C71 14 66 16 62 16" fill="currentColor" opacity="0.7"/>
+                  <path d="M62 16 C58 16 54 18 52 22 C50 26 50 30 52 32"/>
+                  <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
+                  <path d="M64 17 L72 14 L66 19" fill="currentColor" opacity="0.5"/>
+                  <path d="M52 32 C48 36 44 40 42 46"/>
+                  <path d="M42 46 C38 52 36 60 38 68 C40 74 44 78 50 80"/>
+                  <path d="M52 32 C56 36 58 42 58 50 C58 58 56 66 52 72"/>
+                  <path d="M52 72 C56 68 62 62 68 58" opacity="0.6"/>
+                  <path d="M52 72 C58 70 66 66 72 60" opacity="0.5"/>
+                  <path d="M46 52 C42 56 40 62 42 68 C44 72 48 74 50 72" opacity="0.5"/>
+                  <path d="M46 80 L44 96 L38 102"/><path d="M44 96 L50 102"/>
+                  <path d="M50 80 L52 96 L46 102"/><path d="M52 96 L58 102"/>
+                </g>
+              </svg>
+            </div>
+            <h3>De Hanen</h3>
+            <p>Leden van O.D.O.L.E.H. worden hanen genoemd — kin omhoog, borst vooruit, trots en onmiskenbaar aanwezig.</p>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">1890</div>
+            <h3>Het Oudste Kroegendispuut</h3>
+            <p>Sinds 1890 het oudste kroegendispuut van het A.S.C. — meer dan een eeuw traditie, kameraadschap en Ketel 1.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Cultuur -->
+  <section id="cultuur" class="section cultuur">
+    <div class="container">
+      <h2 class="section-title">Onze Cultuur</h2>
+      <p class="section-subtitle">De pijlers van O.D.O.L.E.H.</p>
+      <div class="cultuur-grid">
+        <div class="cultuur-card">
+          <div class="cultuur-icon">
+            <svg viewBox="0 0 64 64" width="64" height="64">
+              <rect x="26" y="20" width="12" height="34" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+              <rect x="28" y="54" width="8" height="4" rx="1" fill="currentColor" opacity="0.6"/>
+              <circle cx="32" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+              <text x="32" y="17" text-anchor="middle" font-size="8" fill="currentColor" font-weight="bold">K1</text>
+            </svg>
+          </div>
+          <h3>Ketel 1</h3>
+          <p>De jenever die onlosmakelijk verbonden is met O.D.O.L.E.H. Elk glas is een toast op traditie, kameraadschap en het goede leven.</p>
+        </div>
+        <div class="cultuur-card">
+          <div class="cultuur-icon">
+            <svg viewBox="0 0 64 64" width="64" height="64">
+              <rect x="16" y="24" width="32" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 32 L48 32" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="12" y="20" width="40" height="4" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M28 12 C28 8 36 8 36 12 L36 20 L28 20 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>De Kroeg</h3>
+          <p>Het oudste kroegendispuut van het A.S.C. sinds 1890. De kroeg is ons thuis — waar de hanen samenkomen, de verhalen leven en de tradities worden doorgegeven.</p>
+        </div>
+        <div class="cultuur-card">
+          <div class="cultuur-icon">
+            <svg class="haan-svg" viewBox="0 0 100 120" width="64" height="77">
+              <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M52 12 C54 6 58 4 60 8 C62 4 66 3 67 8 C69 4 73 5 72 10 C71 14 66 16 62 16" fill="currentColor" opacity="0.7"/>
+                <path d="M62 16 C58 16 54 18 52 22 C50 26 50 30 52 32"/>
+                <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
+                <path d="M64 17 L72 14 L66 19" fill="currentColor" opacity="0.5"/>
+                <path d="M52 32 C48 36 44 40 42 46"/>
+                <path d="M42 46 C38 52 36 60 38 68 C40 74 44 78 50 80"/>
+                <path d="M52 32 C56 36 58 42 58 50 C58 58 56 66 52 72"/>
+                <path d="M52 72 C56 68 62 62 68 58" opacity="0.6"/>
+                <path d="M52 72 C58 70 66 66 72 60" opacity="0.5"/>
+                <path d="M46 52 C42 56 40 62 42 68 C44 72 48 74 50 72" opacity="0.5"/>
+                <path d="M46 80 L44 96 L38 102"/><path d="M44 96 L50 102"/>
+                <path d="M50 80 L52 96 L46 102"/><path d="M52 96 L58 102"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Joachad</h3>
+          <p>Het vaderfiguur van O.D.O.L.E.H. — de geest die over het dispuut waakt. Zijn naam wordt met respect en een glimlach uitgesproken.</p>
+        </div>
+        <div class="cultuur-card">
+          <div class="cultuur-icon">
+            <svg viewBox="0 0 64 64" width="64" height="64">
+              <path d="M20 48 C20 32 12 28 12 20 C12 12 20 6 32 6 C44 6 52 12 52 20 C52 28 44 32 44 48 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="22" y1="52" x2="42" y2="52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="24" y1="56" x2="40" y2="56" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="32" cy="60" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>De Fleurtijd</h3>
+          <p>Wanneer de kleuren wisselen naar zwart en rood, breekt de fleurtijd aan. Een periode van beproeving, groei en de ultieme toewijding aan het dispuut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Jenny -->
+  <section id="jenny" class="section jenny">
+    <div class="container">
+      <h2 class="section-title">Jenny</h2>
+      <p class="section-subtitle">Het dispuutslied van O.D.O.L.E.H.</p>
+      <div class="jenny-content">
+        <div class="jenny-description">
+          <p>Elk dispuut heeft zijn lied, maar Jenny is meer dan dat. Het is het lijflied dat de hanen bindt — gezongen bij kaarslicht, met een glas Ketel 1 in de hand en Joachad in gedachten.</p>
+          <p class="jenny-note">Beluister Jenny hieronder op Spotify.</p>
+        </div>
+        <div class="jenny-player">
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/search/Jenny%20ODOLEH?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Agenda -->
+  <section id="agenda" class="section agenda">
+    <div class="container">
+      <h2 class="section-title">Agenda</h2>
+      <p class="section-subtitle">Planning tot en met de zomer</p>
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">02</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">04</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Alto Penelope</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">09</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">10</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Dinder + Alto LLL</h3><p>Casino Royale thema</p></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">16</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">17–19</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Weekend Weg</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">23</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">26</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Koningsnacht Vishnu</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">27</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Koningsdag</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">30</span><span class="agenda-month">APR</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">02</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Chiquedag Vishnu</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">06</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>OJE Pokertoernooi</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">07</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">10</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Ma-Zoon Dag</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">14</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">15</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>ALV</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">21</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Tentamenborrel</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">28</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Borrel / NIA-nacht</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">29</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>NOX Alto</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">30</span><span class="agenda-month">MEI</span></div>
+          <div class="agenda-info"><h3>Corps Chiquedag</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">04</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>Borrel</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">11</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>Lotingsbal</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">12</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>Kickboksgala</h3></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">13</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>Vriendjesdag</h3></div>
+        </div>
+        <div class="agenda-item agenda-highlight">
+          <div class="agenda-date"><span class="agenda-day">14</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>OJE Voetbaltoernooi + WK Nederland–Japan</h3><p>Op K88</p></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date"><span class="agenda-day">27</span><span class="agenda-month">JUN</span></div>
+          <div class="agenda-info"><h3>Vriendjesdag / Chiquedag LLL</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Interesse? Neem contact op.</p>
+      <div class="contact-content">
+        <div class="contact-info">
+          <p>Ben jij een lid van het Amsterdamsch Studenten Corps en wil je meer weten over O.D.O.L.E.H.? Of ben je een oud-haan die weer aansluiting zoekt?</p>
+          <p>Neem contact op met het bestuur.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-label">E-mail</span>
+              <a href="mailto:bestuur@odoleh.nl">bestuur@odoleh.nl</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Sociëteit</span>
+              <span>ASC/AVSV, Warmoesstraat, Amsterdam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-rooster">
+        <svg class="haan-svg" viewBox="0 0 100 120" width="48" height="58">
+          <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M52 12 C54 6 58 4 60 8 C62 4 66 3 67 8 C69 4 73 5 72 10 C71 14 66 16 62 16" fill="currentColor" opacity="0.7"/>
+            <path d="M62 16 C58 16 54 18 52 22 C50 26 50 30 52 32"/>
+            <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
+            <path d="M64 17 L72 14 L66 19" fill="currentColor" opacity="0.5"/>
+            <path d="M52 32 C48 36 44 40 42 46"/>
+            <path d="M42 46 C38 52 36 60 38 68 C40 74 44 78 50 80"/>
+            <path d="M52 32 C56 36 58 42 58 50 C58 58 56 66 52 72"/>
+            <path d="M52 72 C56 68 62 62 68 58" opacity="0.6"/>
+            <path d="M52 72 C58 70 66 66 72 60" opacity="0.5"/>
+            <path d="M46 52 C42 56 40 62 42 68 C44 72 48 74 50 72" opacity="0.5"/>
+            <path d="M46 80 L44 96 L38 102"/><path d="M44 96 L50 102"/>
+            <path d="M50 80 L52 96 L46 102"/><path d="M52 96 L58 102"/>
+          </g>
+        </svg>
+      </div>
+      <p class="footer-name">O.D.O.L.E.H.</p>
+      <p class="footer-tagline">Opgericht Door Oud Leden Enere Hogereburgerschool</p>
+      <p class="footer-corps">Dispuut van het Amsterdamsch Studenten Corps</p>
+      <div class="footer-colors">
+        <span class="color-dot color-paars"></span>
+        <span class="color-dot color-groen"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
